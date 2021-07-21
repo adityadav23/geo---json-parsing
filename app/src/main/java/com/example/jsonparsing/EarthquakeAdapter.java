@@ -20,7 +20,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
     private final Context context;
     private final ArrayList<Earthquake> earthquake;
-
+    private static final String LOCATION_SEPARATOR_OF = " of ";
     // Constructor for EarthquakeAdapter
 
     public EarthquakeAdapter(Context context, ArrayList<Earthquake> list ){
@@ -51,12 +51,34 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         TextView magnitude = rowView.findViewById(R.id.magnitude);
         magnitude.setText(earthquake.get(position).getmMagnitude()+ "");
 
+        //Initializing two string variable sto store values
 
-        //finding view by id place
-        // displaying the text
+        String location_Offset="";
+        String primaryLocation="";
 
-        TextView place = rowView.findViewById(R.id.place);
-        place.setText(earthquake.get(position).getmPlace()+ "");
+            String originalLocation = earthquake.get(position).getmPlace();
+
+        /*Checking for LOCATION_SEPARATOR_OF in the original Location and
+            setting values string variables
+        */
+
+        if(originalLocation.contains(LOCATION_SEPARATOR_OF)){
+            String[] parts = originalLocation.split(LOCATION_SEPARATOR_OF);
+            location_Offset = parts[0]+ " of ";
+            primaryLocation = parts[1];
+        }else{
+            location_Offset = getContext().getString(R.string.Near_the);
+            primaryLocation = originalLocation;
+        }
+
+        // find view id place
+        // displaying the place and offset value in the views
+         TextView place = rowView.findViewById(R.id.place);
+         place.setText(primaryLocation);
+
+        TextView locationOffset = rowView.findViewById(R.id.locationOffset);
+        locationOffset.setText(location_Offset);
+
 
 
         // Creating a date object from the earthquake list
