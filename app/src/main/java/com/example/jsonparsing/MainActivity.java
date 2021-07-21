@@ -18,8 +18,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ListView listView = findViewById(R.id.list);
 
-        TextView tv1 = findViewById(R.id.tv1);
-        tv1.setText(q.extractEarthquakes());
+        EarthquakeAdapter adapter = new EarthquakeAdapter(this, q.extractEarthquakes());
+
+        listView.setAdapter(adapter);
     }
 }

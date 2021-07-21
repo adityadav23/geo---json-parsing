@@ -37,11 +37,11 @@ public final class QueryUtils {
      * Return a list of {@link Earthquake } objects that has been built up from
      * parsing a JSON response.
      */
-    public static String extractEarthquakes() {
+    public static ArrayList<Earthquake> extractEarthquakes() {
 
         // Create an empty ArrayList that we can start adding earthquakes to
         ArrayList<Earthquake> earthquakes = new ArrayList<>();
-        String x="";
+
         // Try to parse the SAMPLE_JSON_RESPONSE. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
@@ -54,11 +54,10 @@ public final class QueryUtils {
             JSONArray jsonArray = rootObject.getJSONArray("features");
             JSONObject jsonObject = jsonArray.getJSONObject(0);
             JSONObject jsonObject1 = jsonObject.getJSONObject("properties");
-            int magnitude = jsonObject1.getInt("mag");
+            double magnitude = jsonObject1.getDouble("mag");
 
             String place = jsonObject1.getString("place");
             long time = jsonObject1.getLong("time");
-                 x =" mag "+ magnitude +" place\n"+ place +" \n"+ time;
             earthquakes.add( new Earthquake(magnitude, place , time));
 
 
@@ -71,7 +70,7 @@ public final class QueryUtils {
         }
 
         // Return the list of earthquakes
-        return x;
+        return earthquakes;
     }
 
 }
