@@ -100,6 +100,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         date.setText(formattedDate);
 
 
+
         // return the  view of the list to be displayed
 
         return rowView;

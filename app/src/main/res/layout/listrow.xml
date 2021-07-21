@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
     xmlns:tools="http://schemas.android.com/tools">
 
 
     <TextView
         android:id="@+id/magnitude"
         android:layout_width="0dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
+        android:gravity="center_horizontal"
         android:text="TextView"
-        tools:text="8.9"/>
+        android:textSize="16sp"
+        tools:text="8.9" />
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+
         android:orientation="vertical">
 
 
@@ -27,15 +30,16 @@
             android:id="@+id/locationOffset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:text = "30km S of"/>
+
+            tools:text="30km S of" />
 
         <TextView
             android:id="@+id/place"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:text ="San Francisco, CA"/>
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="San Francisco, CA" />
 
 
     </LinearLayout>
@@ -51,15 +55,13 @@
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:text="MAr 6, 2010"/>
+            tools:text="Mar 6, 2010" />
 
         <TextView
             android:id="@+id/time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:text="3:00 PM"/>
+            tools:text="3:00 PM" />
 
     </LinearLayout>
 
